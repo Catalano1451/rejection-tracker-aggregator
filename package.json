@@ -1,0 +1,17 @@
+{
+  "name": "rejection-tracker-aggregator",
+  "version": "0.1.0",
+  "description": "Collects every unhandled promise rejection over a process lifetime into an array with timestamp, reason, and stack, while suppressing the default process exit.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
