@@ -31,3 +31,10 @@ Node exits on unhandled rejections by default (Node 15+). For long-running servi
 - `start()` is idempotent; calling it twice does not register a second listener. `stop()` is likewise idempotent.
 - `entries` returns a copy. Mutating it does not affect the tracker's internal state.
 - The library coexists with any other `unhandledRejection` listener you register yourself; it does not consume or swallow rejections from other listeners.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
